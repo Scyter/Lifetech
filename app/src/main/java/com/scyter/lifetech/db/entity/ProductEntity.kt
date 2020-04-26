@@ -14,13 +14,11 @@ data class ProductEntity(
 
     val price: Int,
 
-    val image: String,
-
-    val description: String? = ""
+    val image: String
 )
 
 fun ProductEntity.toProduct(): Product {
-    return Product(productId, name, price, image, description ?: "")
+    return Product(productId, name, price, image)
 }
 
 fun List<ProductEntity>.toProducts(): List<Product> {
@@ -28,7 +26,7 @@ fun List<ProductEntity>.toProducts(): List<Product> {
 }
 
 fun Product.toEntity(): ProductEntity {
-    return ProductEntity(productId, name, price, image, description)
+    return ProductEntity(productId, name, price, image)
 }
 
 fun List<Product>.toEntities(): List<ProductEntity> {

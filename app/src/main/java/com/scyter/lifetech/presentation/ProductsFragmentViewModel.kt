@@ -31,6 +31,12 @@ class ProductsFragmentViewModel(
     }
 
     fun onProductSelected(productId: String) {
+        val product = _products.value?.firstOrNull { it.productId == productId } ?: return
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                getProductsUseCase.updateProductDetails(product)
+            }
+        }
         productDetailsRepository.selectedProductId.value = productId
     }
 

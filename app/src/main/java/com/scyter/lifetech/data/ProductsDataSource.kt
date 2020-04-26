@@ -1,6 +1,7 @@
 package com.scyter.lifetech.data
 
 import com.scyter.lifetech.domain.model.Product
+import com.scyter.lifetech.domain.model.ProductDetails
 
 interface ProductsDataSource {
 
@@ -18,7 +19,7 @@ sealed class ProductsResult {
 
 sealed class ProductDetailsResult {
 
-    data class Success(val product: Product) : ProductDetailsResult()
+    data class Success(val product: ProductDetails) : ProductDetailsResult()
 
     data class Error(val message: String) : ProductDetailsResult()
 }

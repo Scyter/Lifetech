@@ -11,6 +11,8 @@ interface GetProductsUseCase {
 
     suspend fun updateProducts()
 
+    suspend fun updateProductDetails(product: Product)
+
     suspend fun subscribeToProductErrors(): Flow<RepositoryError>
 }
 
@@ -31,5 +33,9 @@ class GetProductsUseCaseImpl(
 
     override suspend fun updateProducts() {
         productsRepository.updateProducts()
+    }
+
+    override suspend fun updateProductDetails(product: Product) {
+        productsRepository.saveProductDetails(product)
     }
 }

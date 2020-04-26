@@ -2,13 +2,13 @@ package com.scyter.lifetech.domain.usecase
 
 import com.scyter.lifetech.domain.ProductsRepository
 import com.scyter.lifetech.domain.RepositoryError
-import com.scyter.lifetech.domain.model.Product
+import com.scyter.lifetech.domain.model.ProductDetails
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 
 
 interface GetProductDetailsUseCase {
-    suspend fun getProductDetail(productId: String): Flow<Product>
+    suspend fun getProductDetail(productId: String): Flow<ProductDetails>
 
     suspend fun updateProductDetails(productId: String)
 
@@ -19,7 +19,7 @@ class GetProductDetailsUseCaseImpl(
     private val productsRepository: ProductsRepository
 ) : GetProductDetailsUseCase {
 
-    override suspend fun getProductDetail(productId: String): Flow<Product> {
+    override suspend fun getProductDetail(productId: String): Flow<ProductDetails> {
         return productsRepository.subscribeToProductDetails(productId)
     }
 

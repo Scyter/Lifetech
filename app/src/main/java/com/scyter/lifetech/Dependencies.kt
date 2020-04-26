@@ -17,6 +17,7 @@ import com.scyter.lifetech.presentation.MainActivityViewModelFactory
 import com.scyter.lifetech.presentation.ProductDetailsFragmentViewModelFactory
 import com.scyter.lifetech.presentation.ProductsFragmentViewModelFactory
 
+// Here planed to be Koin implementation. But "Next time, baby"
 object Dependencies {
 
     fun createMainActivityViewModelFactory(): MainActivityViewModelFactory {
@@ -38,10 +39,12 @@ object Dependencies {
         ProductDetailsRepository()
     }
 
-    private const val dbName = "lifetechDB.sqlite"
-
     private val database: LifetechDatabase by lazy {
-        Room.databaseBuilder(LifetechApp.instance, LifetechDatabase::class.java, dbName).build()
+        Room.databaseBuilder(
+            LifetechApp.instance,
+            LifetechDatabase::class.java,
+            LifetechDatabase.dbName
+        ).build()
     }
 
     private val api: ProductApi by lazy {

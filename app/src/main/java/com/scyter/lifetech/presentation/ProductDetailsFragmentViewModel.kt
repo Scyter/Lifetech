@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.scyter.lifetech.domain.ProductDetailsRepository
-import com.scyter.lifetech.domain.model.Product
+import com.scyter.lifetech.domain.model.ProductDetails
 import com.scyter.lifetech.domain.usecase.GetProductDetailsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -14,10 +14,10 @@ import kotlinx.coroutines.withContext
 
 class ProductDetailsFragmentViewModel(
     private val getProductDetailsUseCase: GetProductDetailsUseCase,
-    private val productDetailsRepository: ProductDetailsRepository
+    productDetailsRepository: ProductDetailsRepository
 ) : ViewModel() {
 
-    private var product: Product? = null
+    private var product: ProductDetails? = null
 
     private val _name = MutableLiveData<String>()
     private val _price = MutableLiveData<String>()
