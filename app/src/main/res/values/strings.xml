@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lifetech</string>
+    <string name="transition_name">Best Transition Ever</string>
 </resources>
